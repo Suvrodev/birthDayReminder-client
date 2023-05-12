@@ -3,6 +3,8 @@ import { AuthContext } from '../Provider/AuthProvider';
 
 const AddPeople = () => {
     const {user}=useContext(AuthContext)
+    const email=user.email;
+    console.log(email)
     const handleAddPeople=(event)=>{
         event.preventDefault();
         const form=event.target;
@@ -16,9 +18,31 @@ const AddPeople = () => {
         const desc=form.desc.value;
         const status="on"
 
-        const people={name,dob,email,photo,phone,location,desc,status}
+        const people={
+            Ref_Email: user.email,
+            name,
+            dob,
+            email,
+            photo,
+            phone,
+            location,
+            desc,
+            status
+        }
 
         console.log(people)
+
+        fetch('http://localhost:5000/addpeople',{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(people)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+        })
     }
     return (
         <div>
