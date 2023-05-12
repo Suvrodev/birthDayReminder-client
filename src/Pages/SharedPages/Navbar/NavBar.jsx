@@ -63,7 +63,14 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to='/adminpeople'><button className="btn btn-outline btn-warning">Web Admin Activity</button></Link>
+          {
+            user?.email==="suvrodevhowlader1408@gmail.com"?
+            <Link to='/adminpeople'><button className="btn btn-outline btn-warning">Web Admin Activity</button></Link>
+            :
+            ""
+          }
+          {/* <Link to='/adminpeople'><button className="btn btn-outline btn-warning">Web Admin Activity</button></Link> */}
+
         </div>
       </div>
     );
