@@ -8,6 +8,8 @@ import SignUp from "../Pages/SignUp/SignUp";
 import Login from "../Pages/Login/Login";
 import AddPeople from "../Pages/AddPeople/AddPeople";
 import AllPeople from "../Pages/AllPeople/AllPeople";
+import People from "../Pages/People/People";
+import Update from "../Pages/Update/Update";
 
 
   const router = createBrowserRouter([
@@ -34,6 +36,14 @@ import AllPeople from "../Pages/AllPeople/AllPeople";
         {
             path: '/adminpeople',
             element: <AllPeople></AllPeople>
+        },
+        {
+            path: '/people',
+            element: <People></People>
+        },
+        {
+            path: '/update',
+            element: <Update></Update>
         }
       ]
     },
