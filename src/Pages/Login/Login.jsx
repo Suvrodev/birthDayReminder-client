@@ -5,9 +5,22 @@ import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Login = () => {
-    const {signInByGoogle}=useContext(AuthContext)
+    const {signInByGoogle,loginByEmail}=useContext(AuthContext)
     const handleLogin=event=>{
-        signInByGoogle
+       event.preventDefault();
+       const form=event.target;
+       const email=form.email.value;
+       const password=form.password.value;
+       console.log(email, password)
+
+        loginByEmail(email,password)
+       .then(result=>{
+            const loggedUser=result.user;
+            console.log(loggedUser)
+       })
+       .catch(error=>{
+           console.log(error.message)
+       })
     }
     const handleLoginGoogle=()=>{
         signInByGoogle()

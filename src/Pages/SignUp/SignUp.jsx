@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import regImage from '../../assets/regImage.jpg'
 import { Link } from 'react-router-dom';
+import AuthProvider, { AuthContext } from '../Provider/AuthProvider';
 
 const SignUp = () => {
+
+    const {registerByEmail}=useContext(AuthContext)
+
     const handleSignUp=(event)=>{
         event.preventDefault();
         const form=event.target;
@@ -12,6 +16,15 @@ const SignUp = () => {
         const password=form.password.value;
 
         console.log(name,"\n",photo,"\n",email,"\n",password)
+
+        registerByEmail(email,password)
+        .then(result=>{
+            const loggedUser=result.user;
+            console.log(loggedUser)
+        })
+        .catch(error=>{
+            console.log(error.message)
+        })
     }
     return (
         <div className="hero min-h-screen bg-base-200">
