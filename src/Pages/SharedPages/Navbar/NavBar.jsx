@@ -4,11 +4,15 @@ import { Link } from 'react-router-dom';
 import navLogo from '../../../assets/logo.svg'
 
 const NavBar = () => {
-    const {user}=useContext(AuthContext)
+    const {user,doLogout}=useContext(AuthContext)
 
 
     const handleLogout=()=>{
-        console.log("Logout")
+       doLogout()
+       .then(()=>{})
+       .catch(error=>{
+        console.log(error.message)
+       })
     }
 
     const navItems=<div className='lg:flex items-center justify-center'>
