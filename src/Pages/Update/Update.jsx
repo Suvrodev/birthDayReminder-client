@@ -31,6 +31,9 @@ const Update = () => {
             {
                 user.email && <p className='text-center mt-5 font-bold text-orange-400'>Hey,  <span className='text-green-500 font-extrabold italic text-lg'>{user.email} </span></p>
             }
+            <div className='mt-10'>
+                <img className='w-24 mx-auto rounded-full' src={photo} alt="" />
+            </div>
             <form onSubmit={handleUpdatePeople} className="p-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="form-control">

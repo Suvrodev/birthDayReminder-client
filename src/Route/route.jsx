@@ -10,6 +10,7 @@ import AddPeople from "../Pages/AddPeople/AddPeople";
 import AllPeople from "../Pages/AllPeople/AllPeople";
 import People from "../Pages/People/People";
 import Update from "../Pages/Update/Update";
+import PrivateRoute from "./PrivateRoute";
 
 
   const router = createBrowserRouter([
@@ -39,7 +40,7 @@ import Update from "../Pages/Update/Update";
         },
         {
             path: '/people',
-            element: <People></People>
+            element: <PrivateRoute><People></People></PrivateRoute>
         },
         {
             path: '/update/:id',
