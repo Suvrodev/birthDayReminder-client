@@ -20,12 +20,14 @@ const AuthProvider = ({children}) => {
 
     ///Registration By Email start
     const registerByEmail=(email,password)=>{
+        setLoading(true)
         return createUserWithEmailAndPassword(auth,email,password)
     }
     ///Registration By Email end
 
     ///Login By Email start
     const loginByEmail=(email,password)=>{
+        setLoading(true)
         return signInWithEmailAndPassword(auth,email,password)
     }
     ///Login By Email end
@@ -33,6 +35,7 @@ const AuthProvider = ({children}) => {
 
     ///Logout Start
     const doLogout=()=>{
+        setLoading(true)
         return signOut(auth)
     }
     ///Logout End
@@ -42,6 +45,7 @@ const AuthProvider = ({children}) => {
     useEffect(()=>{
        const unSubscribe = onAuthStateChanged(auth, (currentUser)=>{
             setUser(currentUser)
+            setLoading(false)
            // console.log('Current User: ',currentUser)
         })
         return ()=>{
