@@ -1,11 +1,12 @@
 import React from 'react';
 import CheckImage from '../../assets/regImage.jpg'
 import { FaArrowCircleRight, FaPrescriptionBottle } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const AllPeopleCard = ({people}) => {
 
     console.log(people)
-    const {photo,name,dob,Ref_Email}=people;
+    const {_id,photo,name,dob,Ref_Email}=people;
    
   
     
@@ -30,7 +31,8 @@ const AllPeopleCard = ({people}) => {
 
                 <div className='w-full h-1/2 flex text-2xl justify-between p-5 items-end'>
                     <span onClick={handleDelete} className='text-red-600'><FaPrescriptionBottle/></span>
-                    <span onClick={handleUpdate} className='text-green-700'><FaArrowCircleRight/></span>
+                   <Link to={`/update/${_id}`}> <span onClick={handleUpdate} className='text-green-700'><FaArrowCircleRight/></span></Link>
+                   
                 </div>
             </div>
         </div>

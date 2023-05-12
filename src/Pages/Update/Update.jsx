@@ -1,8 +1,27 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
+import { useParams } from 'react-router-dom';
 
 const Update = () => {
     const {user}=useContext(AuthContext)
+
+    const {id}=useParams()
+    console.log(id)
+
+    const [people,setPeople]=useState('')
+
+    useEffect(()=>{
+        fetch(`http://localhost:5000/peoples/${id}`)
+        .then(res=>res.json())
+        .then(data=>{
+            setPeople(data)
+        })
+    },[])
+
+    console.log(people)
+    const {_id,name,dob,email,photo,phone,location,desc}=people;
+
+
     const handleUpdatePeople=(event)=>{
 
     }
@@ -23,6 +42,7 @@ const Update = () => {
                         name="name"
                         placeholder="Name"
                         className="input input-bordered"
+                        defaultValue={name}
                         />
                     </div>
                     <div className="form-control">
@@ -33,6 +53,7 @@ const Update = () => {
                         type="date"
                         name="date"
                         className="input input-bordered"
+                        defaultValue={dob}
                         />
                 </div>
                 <div className="form-control">
@@ -44,6 +65,7 @@ const Update = () => {
                         name="email"
                         placeholder="Email"
                         className="input input-bordered"
+                        defaultValue={email}
                         
                         />
                     </div>
@@ -55,6 +77,7 @@ const Update = () => {
                         type="url"
                         name="photo"
                         className="input input-bordered"
+                        defaultValue={photo}
                         />
                 </div>
                 <div className="form-control">
@@ -66,6 +89,7 @@ const Update = () => {
                         name="phone"
                         placeholder="Phone Number"
                         className="input input-bordered"
+                        defaultValue={phone}
                         />
                     </div>
                     <div className="form-control">
@@ -77,6 +101,7 @@ const Update = () => {
                         name="location"
                         placeholder="Location"
                         className="input input-bordered"
+                        defaultValue={location}
                         />
                 </div>
             </div>
@@ -87,8 +112,10 @@ const Update = () => {
             </label>
     
                 <textarea name="desc" 
+                defaultValue={desc}
                 rows="10"
                 className="w-full resize-none rounded-lg ps-5 pt-5">
+                
                 </textarea>
             </div>
                 <div className="form-control mt-6">
