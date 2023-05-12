@@ -6,7 +6,7 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            This is Main
+             {/* This is Main */}
             <Outlet></Outlet>
         </div>
     );
