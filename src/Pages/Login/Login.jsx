@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import loginImage from '../../assets/loginImage.jpg'
 import { Link } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Login = () => {
+    const {signInByGoogle}=useContext(AuthContext)
     const handleLogin=event=>{
-
+        signInByGoogle
     }
-    const handleLoginGoogle=(event)=>{
-
+    const handleLoginGoogle=()=>{
+        signInByGoogle()
+        .then(result=>{
+            const loggedUser=result.user;
+            console.log(loggedUser)
+        })
+        .catch(error=>{
+            console.log(error.message)
+        })
     }
     return (
         <div className="hero min-h-screen bg-base-200">
