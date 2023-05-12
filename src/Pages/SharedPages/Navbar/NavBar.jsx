@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { Link } from 'react-router-dom';
 import navLogo from '../../../assets/logo.svg'
+import birthDayLogo from '../../../assets/birthdayLogo.png'
 
 const NavBar = () => {
     const {user,doLogout}=useContext(AuthContext)
@@ -54,7 +55,7 @@ const NavBar = () => {
            
             </ul>
           </div>
-          <Link className="btn btn-ghost normal-case text-xl" to='/'> <img src={navLogo} /> </Link>
+          <Link className="btn btn-ghost normal-case text-xl" to='/'> <img className='w-14' src={birthDayLogo} /> </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
