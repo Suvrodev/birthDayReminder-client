@@ -4,7 +4,14 @@ import { Link } from 'react-router-dom';
 
 const SignUp = () => {
     const handleSignUp=(event)=>{
+        event.preventDefault();
+        const form=event.target;
+        const name=form.name.value;
+        const photo=form.photo.value;
+        const email=form.email.value;
+        const password=form.password.value;
 
+        console.log(name,"\n",photo,"\n",email,"\n",password)
     }
     return (
         <div className="hero min-h-screen bg-base-200">

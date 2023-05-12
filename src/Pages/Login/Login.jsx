@@ -56,7 +56,7 @@ const Login = () => {
               <p className="font-bold">Or Sign up With</p>
               <button onClick={handleLoginGoogle} className="btn text-yellow-300"> <FaGoogle/> </button>
              </div>
-             <p className="text-center my-4">New to Car-Doctors? <Link to='/signup' className="font-bold text-orange-500">Sign Up</Link> </p>
+             <p className="text-center my-4">New to Here? <Link to='/signup' className="font-bold text-orange-500">Sign Up</Link> </p>
             </div>
           </div>
         </div>
