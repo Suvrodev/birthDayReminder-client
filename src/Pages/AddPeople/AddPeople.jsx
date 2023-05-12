@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AddPeople = () => {
     const {user}=useContext(AuthContext)
@@ -42,6 +43,15 @@ const AddPeople = () => {
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
+            if(data.insertedId){
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Data Added Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            }
         })
     }
     return (
